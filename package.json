@@ -1,0 +1,26 @@
+{
+  "name": "web-chat-bd3-2025-2",
+  "version": "1.0.0",
+  "description": "um webchat simples para demonstração de uso no MONGODB",
+  "keywords": [
+    "mongodb",
+    "bd3",
+    "chat",
+    "web"
+  ],
+  "license": "ISC",
+  "author": "Giovana dos Santos",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
