@@ -1,38 +1,95 @@
-body{
-    background-color: #ccc;
+/* Fundo com a imagem */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url("https://moodgate.com.br/wp-content/uploads/2025/05/st2.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container{
+/* Caixa principal com efeito vidro fosco */
+.container {
     width: 80%;
-    margin: 10px auto;
-    border-radius: 10px;
-    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
-    background-color: #FFF;
+    background: rgba(20, 20, 20, 0.55); /* transparente */
+    backdrop-filter: blur(12px); /* efeito vidro */
+    box-shadow: 0 0 25px rgba(224, 108, 117, 0.4);
 }
 
-.container input{
+/* Título */
+.container h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #ff8ab7; 
+    text-shadow: 0 0 8px rgba(255, 138, 183, 0.5);
+}
+
+/* Inputs */
+.container input {
     margin: 10px;
     padding: 15px;
-    width: 50%;
-}
-
-.container button{
-    padding: 20px;
-    width: 150px;
-    background-color: #05FA6F;
+    width: 80%;
     border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #FFF;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-.messages{
-    width: auto;
-    margin: 10px;
-    border-radius: 10px;
+.container input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 138, 183, 0.7);
+}
+
+/* Botão */
+.container button {
+    margin-top: 10px;
+    padding: 15px;
+    width: 160px;
+    background: linear-gradient(135deg, #ff5f9f, #8b3a50);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 95, 159, 0.7);
+}
+
+/* Área de mensagens */
+.messages {
+    margin-top: 20px;
+    border-radius: 15px;
     padding: 20px;
     text-align: left;
-    background-color: #B5FFD5;
+    background: rgba(255, 255, 255, 0.05);
+    height: 250px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 10px rgba(224, 108, 117, 0.3);
+}
+
+/* Cada mensagem */
+.messages p {
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 138, 183, 0.15);
+    border-left: 4px solid #ff8ab7;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
 }
