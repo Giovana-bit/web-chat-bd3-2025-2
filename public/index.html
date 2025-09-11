@@ -40,6 +40,65 @@
         </div>
 
         <script src="/socket.io/socket.io.js"></script>
+        
+        <script>
+            const socket = io('http://localhost:3000');
+            
+            // Função para renderizar as mensagens na tela:
+            function renderMessage(message) {
+                $('.messages').append('<div class="message"><strong>'
+                + message.author + message.data_hora + '</strong>: '+ message.message +'</div>');
+            }
+
+            // Evento para carregar as mensagens anteriores:
+            socket.on('previousMessage', function(messages) {
+                for (message of messages) {
+                    renderMessage(message);
+                }
+            });
+
+            // Evento para receber novas mensagens:
+            socket.on('receivedMessage', function(message) {
+                renderMessage(message);
+            });
+
+            // Evento para o envio de mensagens:
+            $('#chat').submit(function(event) {
+
+
+                event.preventDefault();
+
+
+                var author = $('input[name=username]').val();
+                var message = $('input[name=message]').val();
+
+
+                if (author.length && message.length) {
+
+
+                    /* Cria um objeto javascript para recuperar a data e a hora do envio da mensagem: */
+                    let data_hora_obj = new Date();
+
+
+                    let data_hora_msg = `
+                                            [${data_hora_obj.getDate()}/${data_hora_obj.getMonth()}/${data_hora_obj.getFullYear()}-${data_hora_obj.getHours()}:${data_hora_obj.getMinutes()}:${data_hora_obj.getSeconds()}]`;
+
+
+                    var messageObject = {
+                        author: author,
+                        data_hora:data_hora_msg,
+                        message: message,
+                    };
+
+                    // Renderiza a mensagem na tela do remetente:
+                    renderMessage(messageObject);
+                    
+                    // Envia a mensagem para o servidor:
+                    socket.emit('sendMessage', messageObject);
+                }
+            });
+
+        </script>
 
     </body>
 
