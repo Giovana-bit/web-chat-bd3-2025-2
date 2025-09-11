@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
     socket.emit('previousMessage', mensages); // enviando mensagens anteriores ao novo usuário
 
     socket.on('sendMessage', (data) => {
-        mensagens.push(data); // armazenando a nova mensagem
+        mensages.push(data); // armazenando a nova mensagem
         socket.broadcast.emit('receivedMessage', data); // enviando a mensagem para todos os outros usuários
     });
 });
