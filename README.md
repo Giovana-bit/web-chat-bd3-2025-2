@@ -23,5 +23,3 @@ Ele utiliza um servidor HTTP integrado com WebSockets para permitir a comunicaç
 - 🗂️ **Serviço de arquivos estáticos** (imagens, scripts e estilos).  
 
 ---
-
-## 📂 Estrutura do Projeto

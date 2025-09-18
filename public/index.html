@@ -47,7 +47,7 @@
             // Função para renderizar as mensagens na tela:
             function renderMessage(message) {
                 $('.messages').append('<div class="message"><strong>'
-                + message.author + message.data_hora + '</strong>: '+ message.message +'</div>');
+                + message.usuario + message.data_hora + '</strong>: '+ message.mensagem +'</div>');
             }
 
             // Evento para carregar as mensagens anteriores:
@@ -69,11 +69,11 @@
                 event.preventDefault();
 
 
-                var author = $('input[name=username]').val();
-                var message = $('input[name=message]').val();
+                var usuario = $('input[name=username]').val();
+                var mensagem = $('input[name=message]').val();
 
 
-                if (author.length && message.length) {
+                if (usuario.length && mensagem.length) {
 
 
                     /* Cria um objeto javascript para recuperar a data e a hora do envio da mensagem: */
@@ -85,9 +85,9 @@
 
 
                     var messageObject = {
-                        author: author,
+                        usuario: usuario,
                         data_hora:data_hora_msg,
-                        message: message,
+                        mensagem: mensagem,
                     };
 
                     // Renderiza a mensagem na tela do remetente:
